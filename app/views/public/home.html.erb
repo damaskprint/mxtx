@@ -1,11 +1,7 @@
 
 <% @categories.each do |category| %>
   <div class="category-box">
-    <p><strong><%= category.name %></strong></p>
-
-    <% category.subcategories.each do |subcategory| %>
-      <div class="subcat"><%= subcategory.name %></div>
-    <% end %>
+    <p><strong><%= link_to category.name, category_path(category) %></strong></p>
   </div>
 <% end %>
 
