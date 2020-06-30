@@ -1,0 +1,12 @@
+<p>
+  <%= link_to "Home", root_path %> >>
+
+  <% if @post.present? 
+    category = @post.category
+  %>
+
+  <%= link_to category.name, category_path(category) %> >>
+  <%= @post.title %>
+
+  <% end %>
+</p> 

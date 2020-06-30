@@ -10,14 +10,22 @@
   </head>
 
   <body>
+    <div class="header">
+      <%= render "layouts/breadcrumb_nav" unless is_home? %>
+    </div>
+
     <p class="notice"><%= notice %></p>
     <div class="main">
       <div class="main-left">
         <p><%= link_to "MXTX", root_path %></p>
 
-        <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
+        <%= link_to "Create new post",new_post_path %>
 
-        <%= link_to "Create new post",new_post_path if controller.controller_name =="public" %>
+        <br />
+        
+        <%= link_to "My Account", new_account_session_path unless account_signed_in? %>
+
+        <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
       </div>
       <div class="main-right">
         <%= yield %>
