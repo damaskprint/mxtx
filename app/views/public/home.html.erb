@@ -1,2 +1,15 @@
-<p> home </p>
+
+<% @categories.each do |category| %>
+  <div class="category-box">
+    <p><strong><%= category.name %></strong></p>
+
+    <% category.subcategories.each do |subcategory| %>
+      <div class="subcat"><%= subcategory.name %></div>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
 
