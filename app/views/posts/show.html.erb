@@ -1,2 +1,12 @@
+
+<a href="#">Reply</a>
+<span class="posted-id">Posted <%= time_ago_in_words @post.created_at %> ago </span>
+
+
 <h1> <%= @post.title %></h1>
 <%= simple_format @post.content %>
+
+<p class="post-meta">
+  <span class="post-id">Post id: <%= @post.id.to_s %></span>
+  <span class="posted-id">Posted <%= time_ago_in_words @post.created_at %> ago </span>
+</p>

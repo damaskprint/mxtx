@@ -10,9 +10,10 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
     <div class="main">
       <div class="main-left">
-        <p>craigslist clone</p>
+        <p><%= link_to "MXTX", root_path %></p>
 
         <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
 
