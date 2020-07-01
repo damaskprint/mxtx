@@ -1,4 +1,12 @@
-<p>
+<div class="inner">
+
+  <% if account_signed_in? %>
+  <%= link_to "Sign Out", destroy_account_session_path, method: :delete,class:"pull-right m-l-10" %>
+  <% else %>
+  <%= link_to "My Account", root_path, class: "pull-right m-l-10" %> 
+  <% end %>
+  <%= link_to "New Post", root_path, class: "pull-right" %> 
+
   <%= link_to "Home", root_path %> >>
 
   <% if @post.present? 
@@ -9,4 +17,4 @@
   <%= @post.title %>
 
   <% end %>
-</p> 
+</div>
