@@ -8,17 +8,25 @@
   <% end %>
   
 
-  <%= link_to "Home", root_path %> >>
-
   <% if @post.present? && !@post.new_record?
-    category = @post.category
-  %>
-
-
-  <%= link_to category.name, category_path(category) %> >>
-  <%= @post.title %>
-
+    category = @post.category %>
+    <%= link_to "Home", root_path %> 
+    >> <%= link_to category.name, category_path(category) %> >>
+    <%= @post.title %>
   <% end %>
 
-  
+  <% if controller.controller_name == "categories" %>
+    <%= link_to "Home", root_path %> 
+    >>  <%= render "categories/category_sidebar" %>
+  <% end %>
+
+  <% if controller.controller_name == "accounts" %>
+    <%= link_to "Home", root_path %> 
+    >>  <%=  'My Account' %>
+  <% end %>
+
+  <% if controller.controller_name == "posts" && @post.new_record?%>
+    <%= link_to "Home", root_path %> 
+    >>  <%=  'Create New Post' %>
+  <% end %>
 </div>

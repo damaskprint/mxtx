@@ -22,10 +22,7 @@
         <%= link_to "Create new post",new_post_path %>
 
         <br />
-        
-        <%= link_to "My Account", new_account_session_path unless account_signed_in? %>
 
-        <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
       </div>
       <div class="main-right">
         <%= yield %>
