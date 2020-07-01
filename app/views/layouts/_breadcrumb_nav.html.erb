@@ -2,19 +2,23 @@
 
   <% if account_signed_in? %>
   <%= link_to "Sign Out", destroy_account_session_path, method: :delete,class:"pull-right m-l-10" %>
+  <%= link_to "My Account", account_path(current_account), class: "pull-right" %> 
   <% else %>
-  <%= link_to "My Account", root_path, class: "pull-right m-l-10" %> 
+  <%= link_to "Sign In", new_account_session_path, class: "pull-right m-l-10" %> 
   <% end %>
-  <%= link_to "New Post", root_path, class: "pull-right" %> 
+  
 
   <%= link_to "Home", root_path %> >>
 
-  <% if @post.present? 
+  <% if @post.present? && !@post.new_record?
     category = @post.category
   %>
+
 
   <%= link_to category.name, category_path(category) %> >>
   <%= @post.title %>
 
   <% end %>
+
+  
 </div>

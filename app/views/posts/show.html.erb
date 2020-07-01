@@ -1,5 +1,10 @@
 
 <a href="#">Reply</a>
+<div class="float-right">
+  <% if current_account && current_account == @post.account %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+  <% end %>
+</div>
 <span class="posted-id">Posted <%= time_ago_in_words @post.created_at %> ago </span>
 
 
