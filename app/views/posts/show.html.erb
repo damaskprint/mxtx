@@ -9,7 +9,11 @@
 
 
 <h1> <%= @post.title %></h1>
+<h3> Genre : <%= @post.genre.name %></h3>
+<h3> Looking for/Interesed in playing : <%= @post.instrument.name %></h3>
 <%= simple_format @post.content %>
+
+
 
 <p class="post-meta">
   <span class="post-id">Post id: <%= @post.id.to_s %></span>
