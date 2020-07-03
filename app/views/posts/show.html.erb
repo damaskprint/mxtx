@@ -6,7 +6,7 @@
   <% end %>
 </div>
 <span class="posted-id">Posted <%= time_ago_in_words @post.created_at %> ago </span>
-
+  <br><br>
 
 <h1> <%= @post.title %></h1>
 <h3> City : <%= @post.city.name %></h3>
@@ -18,9 +18,11 @@
   <% end %>
 </h3>
 
+<br>
+
 <%= simple_format @post.content %>
 
-
+<br><br>
 
 <p class="post-meta">
   <span class="post-id">Post id: <%= @post.id.to_s %></span>
