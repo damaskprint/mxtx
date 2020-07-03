@@ -20,5 +20,20 @@ namespace :posts do
     ])
   end
 
-  
- end
+  desc "Seeds cities"
+  task seed_tags: :environment do
+    City.create!([
+    { name: "San Antonio"},
+    { name: "Austin" },
+    ])
+  end
+
+  desc "Seeds categories"
+  task seed_tags: :environment do
+    Category.create!([
+    { name: "Musicians", url: "Musicians" },
+    { name: "Bands", url: "Bands" },
+    ])
+  end
+
+end

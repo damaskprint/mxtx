@@ -9,6 +9,7 @@
 
 
 <h1> <%= @post.title %></h1>
+<h3> City : <%= @post.city.name %></h3>
 <h3> Genre : <%= @post.genre.name %></h3>
 
 <h3> Looking for/Interesed in playing : 
@@ -23,5 +24,4 @@
 
 <p class="post-meta">
   <span class="post-id">Post id: <%= @post.id.to_s %></span>
-  <span class="posted-id">Posted <%= time_ago_in_words @post.created_at %> ago </span>
 </p>

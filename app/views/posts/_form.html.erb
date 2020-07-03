@@ -14,13 +14,17 @@
   <%= form.label :category_id %>
   <%= form.select :category_id, Category.all.collect {|c| [ c.name, c.id ] } %>
 
+  <%= form.label :city_id %>
+  <%= form.select :city_id, City.all.collect {|c| [ c.name, c.id ] } %>
+
   <%= form.label :genre_id %>
   <%= form.select :genre_id, Genre.all.collect {|c| [ c.name, c.id ] } %>
 
   <%= form.label :instrument_id %>
+  <%= hidden_field_tag "post[instrument_id][]", nil %>
   <% Instrument.all.each do |instrument| %>
-    <%= check_box_tag "post[instrument_id][]", instrument.name %>
-    <%= instrument.name %>
+    <%= check_box_tag "post[instrument_id][]", instrument.name, @post.instrument_id.include?(instrument.name), id: dom_id(instrument)  %>
+    <%= label_tag dom_id(instrument), instrument.name %>
   <% end %>
 
   <%= form.label :title %>
