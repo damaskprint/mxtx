@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_185032) do
+ActiveRecord::Schema.define(version: 2020_07_03_000851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 2020_07_02_185032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "instruments_posts", id: false, force: :cascade do |t|
+    t.bigint "instrument_id", null: false
+    t.bigint "post_id", null: false
+    t.index ["instrument_id", "post_id"], name: "index_instruments_posts_on_instrument_id_and_post_id", unique: true
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "category_id"
     t.string "title"
@@ -55,9 +61,11 @@ ActiveRecord::Schema.define(version: 2020_07_02_185032) do
     t.datetime "updated_at", null: false
     t.bigint "account_id"
     t.integer "genre_id"
-    t.integer "instrument_id"
+    t.string "instrument_id", default: [], array: true
     t.index ["account_id"], name: "index_posts_on_account_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
   end
 
+  add_foreign_key "instruments_posts", "instruments"
+  add_foreign_key "instruments_posts", "posts"
 end

@@ -33,6 +33,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.account_id = current_account.id if account_signed_in?
 
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -79,10 +80,11 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.fetch(:post, {}).permit(:title, :content, :category_id, :genre_id, :instrument_id)
+      params.fetch(:post, {}).permit(:title, :content, :category_id, :genre_id, instrument_id:[])
     end
 end

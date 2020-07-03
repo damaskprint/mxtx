@@ -18,7 +18,10 @@
   <%= form.select :genre_id, Genre.all.collect {|c| [ c.name, c.id ] } %>
 
   <%= form.label :instrument_id %>
-  <%= form.select :instrument_id, Instrument.all.collect {|c| [ c.name, c.id ] } %>
+  <% Instrument.all.each do |instrument| %>
+    <%= check_box_tag "post[instrument_id][]", instrument.name %>
+    <%= instrument.name %>
+  <% end %>
 
   <%= form.label :title %>
   <%= form.text_field :title %>
