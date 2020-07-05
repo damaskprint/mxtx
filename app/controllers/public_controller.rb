@@ -4,4 +4,5 @@ class PublicController < ApplicationController
     @categories = Category.where(parent_id: nil)
   end
 
+
 end

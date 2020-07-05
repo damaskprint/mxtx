@@ -21,7 +21,15 @@
 
         <%= link_to "Create new post",new_post_path %>
 
-        <br />
+        <br>
+        <br>
+
+        <%= search_form_for @search do |f| %>
+          <%= f.label :title_or_content_cont, "keyword" %>
+          <%= f.text_field :title_or_content_cont %>
+
+          <%= f.submit "Search" %>
+        <% end %>
 
       </div>
       <div class="main-right">

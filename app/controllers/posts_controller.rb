@@ -6,7 +6,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @search = Post.search(params[:q])
+    @posts = @search.result
+    @posts = @search.result.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /posts/1
@@ -67,13 +69,15 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post = Post.find(params[:id])
+
     if @post.account != current_account
       return render plain: 'Not Allowed', status: :forbidden
     end
+
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to root_path, notice: 'Post was successfully destroyed.' }
     end
   end
 

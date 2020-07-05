@@ -65,3 +65,6 @@ gem "figaro"
 gem 'language_filter'
 gem 'bad_word_filter'
 gem 'swearjar'
+gem 'filterrific'
+gem 'ransack'
+gem 'will_paginate'

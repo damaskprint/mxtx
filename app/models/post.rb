@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   belongs_to :city
 
   has_and_belongs_to_many :instruments
+  
 
   validates :genre, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
@@ -45,10 +46,8 @@ class Post < ApplicationRecord
     if sj.profane?(:content) == true then
       errors.add(:content, "contains language violation.")
     end
-
-
-
   end
+  
 
   #validate_language :content, matchlist: :profanity, matchlist: :hate, matchlist: :sex
   #validate_language :title, matchlist: :profanity, matchlist: :hate, matchlist: :sex
