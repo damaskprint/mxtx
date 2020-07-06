@@ -24,6 +24,18 @@
     <%= link_to "Home", root_path %> 
     >>  <%=  'My Account' %>
   <% end %>
+
+  <% if @post.present? && @post.new_record?%>
+    <%= link_to "Home", root_path %> 
+    >>  <%=  'Create New Post' %>
+  <% end %>
+
+  <% if controller.controller_name == "posts" && !@post.present? %>
+    <%= link_to "Home", root_path %> 
+    >>  <%=  'Search Results' %>
+  <% end %>
+
+
   
   
   

@@ -1,5 +1,5 @@
 
-<a href="#">Reply</a>
+
 <div class="float-right">
   <% if current_account && current_account == @post.account %>
     <%= link_to 'Edit', edit_post_path(@post) %> |
@@ -13,15 +13,21 @@
 <h3> City : <%= @post.city.name %></h3>
 <h3> Genre : <%= @post.genre.name %></h3>
 
-<h3> Looking for/Interesed in playing : 
-  <% @post.instrument_id.each do |instrument| %>
-    <%= instrument %> 
-  <% end %>
-</h3>
+
+  <h3> Looking for/Interesed in playing : 
+    
+        <% @post.instrument_id.each do | id | %> 
+          <%=  id  %>
+        <% end %>
+  </h3>
 
 <br>
 
 <%= simple_format @post.content %>
+
+<br>
+
+<p> Contact info: <%= simple_format @post.contact %> </p>
 
 <br><br>
 

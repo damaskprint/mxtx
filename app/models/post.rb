@@ -6,10 +6,11 @@ class Post < ApplicationRecord
 
   has_and_belongs_to_many :instruments
   
-
+  validates :contact, presence: true, length: { minimum: 5, maximum: 20 }
   validates :genre, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
   validates :content, presence: true, length: { maximum: 1000 }
+  
   validate  :clean_post
 
   def clean_post

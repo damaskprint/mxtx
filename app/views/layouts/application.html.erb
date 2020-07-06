@@ -24,10 +24,29 @@
         <br>
         <br>
 
+        <h2> Serch Posts </h2>
+
         <%= search_form_for @search do |f| %>
           <%= f.label :title_or_content_cont, "keyword" %>
           <%= f.text_field :title_or_content_cont %>
+          <br>
+          <br>
 
+          <%= f.label :category_id_eq, "Looking for:"  %>
+          <%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
+          <br>
+          <br>
+
+          <%= f.label :genre_id_eq, "Genre"  %>
+          <%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
+          <br>
+          <br>
+
+          <%= f.label :city_id_eq, "City"  %>
+          <%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
+          <br>
+
+          <br>
           <%= f.submit "Search" %>
         <% end %>
 

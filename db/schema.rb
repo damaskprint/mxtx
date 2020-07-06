@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_014300) do
+ActiveRecord::Schema.define(version: 2020_07_06_142528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_014300) do
     t.integer "genre_id"
     t.string "instrument_id", default: [], array: true
     t.integer "city_id"
+    t.string "contact"
     t.index ["account_id"], name: "index_posts_on_account_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
   end

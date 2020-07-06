@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @search = Post.search(params[:q])
-    @posts = @search.result
+    @search = Post.ransack(params[:q])
+    @posts = @search.result(:distinct => true)
     @posts = @search.result.paginate(page: params[:page], per_page: 20)
   end
 
@@ -92,6 +92,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.fetch(:post, {}).permit(:title, :content, :category_id, :genre_id, :city_id, instrument_id:[])
+      params.fetch(:post, {}).permit(:title,:contact , :content, :category_id, :genre_id, :city_id, instrument_id:[])
     end
 end

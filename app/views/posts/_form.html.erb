@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= form.label :contact %>
+  <%= form.text_field :contact %>
+
   <%= form.label :category_id %>
   <%= form.select :category_id, Category.all.collect {|c| [ c.name, c.id ] } %>
 
@@ -21,7 +24,7 @@
   <%= form.select :genre_id, Genre.all.collect {|c| [ c.name, c.id ] } %>
 
   <%= form.label :instrument_id %>
-  <%= hidden_field_tag "post[instrument_id][]", nil %>
+  
   <% Instrument.all.each do |instrument| %>
     <%= check_box_tag "post[instrument_id][]", instrument.name, @post.instrument_id.include?(instrument.name), id: dom_id(instrument)  %>
     <%= label_tag dom_id(instrument), instrument.name %>
