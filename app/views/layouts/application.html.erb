@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mxtx</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'master', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="header">
+    <header>
       <%= render "layouts/breadcrumb_nav" %>
-    </div>
+    </header>
 
     <p class="notice"><%= notice %></p>
-    <div class="main">
-      <div class="main-left">
+    <div class="main container ">
+      <div class="main-left card-body">
+        <div class="card">
         <p><%= link_to "MXTX", root_path %></p>
 
         <%= link_to "Create new post",new_post_path %>
@@ -49,7 +51,7 @@
           <br>
           <%= f.submit "Search" %>
         <% end %>
-
+        </div>
       </div>
       <div class="main-right">
         <%= yield %>

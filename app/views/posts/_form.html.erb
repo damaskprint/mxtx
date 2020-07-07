@@ -11,33 +11,44 @@
     </div>
   <% end %>
 
-  <%= form.label :contact %>
+  <%= form.label :contact, "Contact by Phone/Email/Social media tag: " %>
+  <p> (optional) </p>
   <%= form.text_field :contact %>
+  <br>
+  <br>
 
-  <%= form.label :category_id %>
-  <%= form.select :category_id, Category.all.collect {|c| [ c.name, c.id ] } %>
+  <%= form.label :category_id, "Posting as:" %>
+  <%= form.select :category_id, Category.all.collect {|c| [ c.name.singularize, c.id ] } %>
+  <br>
+  <br>
 
-  <%= form.label :city_id %>
+  <%= form.label :city_id, "City: " %>
   <%= form.select :city_id, City.all.collect {|c| [ c.name, c.id ] } %>
+  <br>
+  <br>
 
-  <%= form.label :genre_id %>
+  <%= form.label :genre_id, "Genre of Music: "%>
   <%= form.select :genre_id, Genre.all.collect {|c| [ c.name, c.id ] } %>
+  <br>
+  <br>
 
-  <%= form.label :instrument_id %>
-  
+  <%= form.label :instrument_id, "Instrument Looking for/Interesed in Playing : " %>
   <% Instrument.all.each do |instrument| %>
     <%= check_box_tag "post[instrument_id][]", instrument.name, @post.instrument_id.include?(instrument.name), id: dom_id(instrument)  %>
     <%= label_tag dom_id(instrument), instrument.name %>
   <% end %>
+  <br>
+  <br>
 
-  <%= form.label :title %>
+  <%= form.label :title, "Title of Post: " %>
   <%= form.text_field :title %>
+  <br>
+  <br>
 
-
-  <%= form.label :content %>
+  <%= form.label :content, "Post Description: " %>
   <%= form.text_area :content %>
-
-
+  <br>
+  <br>
 
   <div class="actions">
     <%= form.submit %>
