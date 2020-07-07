@@ -1,22 +1,35 @@
 namespace :posts do
   desc "Seeds genres"
   task seed_tags: :environment do
-    Genre.create!([{
-      name: "Rock"
-    },
-    {
-      name: "Blues"
-    },
-     {
-      name: "Punk"
-    }])
+    Genre.create!([
+    {name: "Alternative"},
+    {name: "Blues"},
+    {name: "Classical/Orchestra"},
+    {name: "Jazz"},
+    {name: "Country"},
+    {name: "Electronic"},
+    {name: "Cultural"},
+    {name: "Pop/Dance"},
+    {name: "Rap/R&B"},
+    {name: "Metal"},
+    {name: "Punk/Rockabilly"},
+    {name: "Goth/Post-Punk"},
+    {name: "funk/Raggae"},
+    {name: "Indie/Shoegaze"},
+    {name: "Other"},
+    ])
   end
 
   desc "Seeds instruments"
   task seed_tags: :environment do
     Instrument.create!([
-    { name: "Guitar"},
-    { name: "Drums" },
+    { name: "Lead/Rythm Guitar"},
+    { name: "Bass Guitar"},
+    { name: "Piano"},
+    { name: "Brass/classical"},
+    { name: "Synth"},
+    { name: "Vocals"},
+    { name: "Drums/Percussion"},
     ])
   end
 
