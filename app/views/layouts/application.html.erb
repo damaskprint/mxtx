@@ -20,45 +20,53 @@
     </div>
 
     <div class="main container">
-      <div class="main-left card-body">
-              <div class="card">
-              <p><%= link_to "MXTX", root_path %></p>
+      <div class="card  bg-dark main-left">
+        <div class="card-body">
+            <div class="card bg-dark">
+              <div class="card-body bg-dark">
+                <p><%= link_to "MXTX", root_path %></p>
 
-              <%= link_to "Create new post",new_post_path %>
-
-              <br>
-              <br>
-
-              <h2> Serch Posts </h2>
-
-              <%= search_form_for @search do |f| %>
-                <%= f.label :title_or_content_cont, "keyword" %>
-                <%= f.text_field :title_or_content_cont %>
-                <br>
-                <br>
-
-                <%= f.label :category_id_eq, "Looking for:"  %>
-                <%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
-                <br>
-                <br>
-
-                <%= f.label :genre_id_eq, "Genre"  %>
-                <%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
-                <br>
-                <br>
-
-                <%= f.label :city_id_eq, "City"  %>
-                <%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
-                <br>
-
-                <br>
-                <%= f.submit "Search" %>
-              <% end %>
+                  <%= link_to "Create new post",new_post_path %>   
               </div>
+            </div>
+
+
+
+          <br>
+          <br>
+
+          <h2> Serch Posts </h2>
+
+          <%= search_form_for @search do |f| %>
+          <%= f.label :title_or_content_cont, "keyword" %>
+          <%= f.text_field :title_or_content_cont %>
+          <br>
+          <br>
+
+          <%= f.label :category_id_eq, "Looking for:"  %>
+          <%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
+          <br>
+          <br>
+
+          <%= f.label :genre_id_eq, "Genre"  %>
+          <%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
+          <br>
+          <br>
+
+          <%= f.label :city_id_eq, "City"  %>
+          <%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
+          <br>
+
+          <br>
+          <%= f.submit "Search" %>
+          <% end %>
+        </div>
       </div>
+
       <div class="main-right">
         <%= yield %>
       </div>
+
     </div>
   </body>
 </html>
