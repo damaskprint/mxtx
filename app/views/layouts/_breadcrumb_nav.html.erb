@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-static-top text-center  ">  
   <div class="container">  
 
-    <h1 class="navbar-brand pull-right main-right ">
+    <h1 class="navbar-brand pull-right navi-right ">
         <% if account_signed_in? %>
           <%= link_to "Sign Out", destroy_account_session_path, method: :delete%>
           <%= link_to "My Account", account_path(current_account)  %> 
@@ -14,7 +14,7 @@
     
 
   
-    <h1 class="navbar-brand main-left ">
+    <h1 class="navbar-brand navi-left ">
       <% if @post.present? && !@post.new_record?
         category = @post.category %>
         <%= link_to "Home", root_path %> 
