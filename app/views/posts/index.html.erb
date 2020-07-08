@@ -1,23 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="card  bg-dark  text-light">
+  <div class="card-body">
 
-<h1>Search Results</h1>
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Search Results</h1>
+    <br>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <div class="category-post">
-        <span class="post-title"><%= link_to post.title, post_path(post) %></span>
-        <span class="post-date"><%= time_ago_in_words post.created_at %></span>
-      </div>
-    <% end %>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @posts.each do |post| %>
+          <div class="category-post">
+            <span class="post-title"><%= link_to post.title, post_path(post) %></span>
+            <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+            <br>
+            
+          </div>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+  </div>
+</div>
+
 

@@ -2,7 +2,7 @@
 
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h4><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
 
       <ul>
       <% post.errors.full_messages.each do |message| %>
@@ -12,11 +12,11 @@
     </div>
   <% end %>
 
-  <div class="form">
-    <div class="form-group">
+  <form class="form">
+    <div class="form-group" >
       <label> Contact by Phone/Email/Social media tag :</label>
       <input type="contact" class="form-control" id="<%= form.text_field :contact %>
-      <small id="emailHelp" class="form-text text-muted">Optional</small>
+      <small  class="form-text text-muted">Optional</small>    
     </div>
 
     <div class="form-group">
@@ -38,27 +38,30 @@
       </select>
     </div>
 
-    <label>Intrument(s) insterested in :</label>
-    <div class="form-check form-inline">
+    <div class="form-group">
+      <label>Instrument :</label>
+      <select class="form-control" id=<%= form.select :instrument_id, Instrument.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
+      </select>
+    </div>
+    <br>
 
-      <% Instrument.all.each do |instrument| %>
-      <input class="form-check-input" type="checkbox" id=<%= check_box_tag "post[instrument_id][]", instrument.name, @post.instrument_id.include?(instrument.name), id: dom_id(instrument)  %>   
-      <%= label_tag dom_id(instrument), instrument.name %>   
-    <% end %>
+    <div class="form-group">
+      <label> Title of Post :</label>
+      <input type="title" class="form-control" id="<%= form.text_field :title %>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Post Description :</label>
+      <textarea class="form-control" rows="3" id=<%= form.text_area :content %></textarea>
     </div>
 
 
-    <%= form.label :title, "Title of Post: " %>
-    <%= form.text_field :title %>
+    
+    <%= form.submit "post", class: 'btn btn-danger' %>
     <br>
-    <br>
+    <br>   
+  </form>
 
-    <%= form.label :content, "Post Description: " %>
-    <%= form.text_area :content %>
-    <br>
-    <br>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
+<% end %>
+  
+  

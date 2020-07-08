@@ -3,11 +3,12 @@ class Post < ApplicationRecord
   belongs_to :account
   belongs_to :genre
   belongs_to :city
-
-  has_and_belongs_to_many :instruments
+  belongs_to :instrument
   
   validates :contact, presence: true, length: { minimum: 5, maximum: 20 }
   validates :genre, presence: true
+  validates :instrument, presence: true
+  validates :city, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
   validates :content, presence: true, length: { maximum: 1000 }
   

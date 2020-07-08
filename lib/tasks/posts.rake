@@ -4,7 +4,7 @@ namespace :posts do
     Genre.create!([
     {name: "Alternative"},
     {name: "Blues"},
-    {name: "Classical/Orchestra"},
+    {name: "Classical"},
     {name: "Jazz"},
     {name: "Country"},
     {name: "Electronic"},
@@ -25,11 +25,12 @@ namespace :posts do
     Instrument.create!([
     { name: "Lead/Rythm Guitar"},
     { name: "Bass Guitar"},
-    { name: "Piano"},
-    { name: "Brass/classical"},
-    { name: "Synth"},
     { name: "Vocals"},
     { name: "Drums/Percussion"},
+    { name: "Synth"},
+    { name: "acoustic"},
+    { name: "Brass/classical"},
+    { name: "Piano"},
     ])
   end
 

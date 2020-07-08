@@ -1,17 +1,28 @@
-<h1>Account Dashboard</h1>
-<br />
-<h2><%= @account.email %></h2>
-<h3>Member Since: <%= @account.created_at.strftime("%B %d, %Y") %></h3>
-<h4><%= @account.posts.count %> total Posts</h4>
+<div class="card-columns">
+  <div class="card  bg-dark  text-light">
+    <div class="card-body">
+      <h1>Account Dashboard</h1>
+      <br />
+      <h2><%= @account.email %></h2>
+      <h5>Member Since: <%= @account.created_at.strftime("%B %d, %Y") %></h5>
+      <h4><%= @account.posts.count %> total Posts</h4>
 
-<br>
-
-<h2>My Posts:</h2>
-
-
-<% @account.posts.each do |post| %>
-  <div class="category-post">
-    <span class="post-title"><%= link_to post.title, post_path(post) %></span>
-    <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+      <br>
+    </div>
   </div>
-<% end %>
+
+
+
+  <div class="card  bg-dark  text-light">
+    <div class="card-body">
+      <h2>My Posts :</h2>
+
+      <% @account.posts.each do |post| %>
+        <div class="category-post">
+          <span class="post-title"><%= link_to post.title, post_path(post) %></span>
+          <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

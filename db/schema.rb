@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_142528) do
     t.datetime "updated_at", null: false
     t.bigint "account_id"
     t.integer "genre_id"
-    t.string "instrument_id", default: [], array: true
+    t.integer "instrument_id"
     t.integer "city_id"
     t.string "contact"
     t.index ["account_id"], name: "index_posts_on_account_id"

@@ -1,47 +1,57 @@
 <nav class="navbar navbar-dark bg-dark text-center  ">  
   <div class="container">
   
+
+
     <nav class="navbar-brand nav">
-     
-        <% if @post.present? && !@post.new_record?
-          category = @post.category %>
-          <%= link_to "Home", root_path %> 
-          >> <%= link_to category.name, category_path(category) %> >>
-          <%= @post.title %>
-        <% end %>
+      <% if @post.present? && !@post.new_record?
+        category = @post.category %>
+        <%= link_to "Home", root_path %> 
+        >> <%= link_to category.name, category_path(category) %> >>
+        <%= @post.title %>
+      <% end %>
 
-        <% if controller.controller_name == "categories" %>
-          <%= link_to "Home", root_path %> 
-          >>  <%= render "categories/category_sidebar" %>
-        <% end %>
+      <% if controller.controller_name == "public" %>
+        <%= link_to "Welcome, Traveler.", root_path %> 
+      <% end %>
 
-        <% if controller.controller_name == "accounts" && account_signed_in? %>
-          <%= link_to "Home", root_path %> 
-          >>  <%=  'My Account' %>
-        <% end %>
+      <% if controller.controller_name == "categories" %>
+        <%= link_to "Home", root_path %> 
+        >>  <%= render "categories/category_sidebar" %>
+      <% end %>
 
-        <% if controller.controller_name == "accounts" && !account_signed_in? %>
-          <%= link_to "Home", root_path %> 
-          >>  <%=  'Sign In' %>
-        <% end %>
+      <% if controller.controller_name == "accounts" && account_signed_in? %>
+        <%= link_to "Home", root_path %> 
+        >>  <%=  'My Account' %>
+      <% end %>
 
-        <% if @post.present? && @post.new_record?%>
-          <%= link_to "Home", root_path %> 
-          >>  <%=  'Create New Post' %>
-        <% end %>
+      <% if controller.controller_name == "accounts" && !account_signed_in? %>
+        <%= link_to "Home", root_path %> 
+        >>  <%=  'Sign In' %>
+      <% end %>
 
-        <% if controller.controller_name == "posts" && !@post.present? %>
-          <%= link_to "Home", root_path %> 
-          >>  <%=  'Search Results' %>
-        <% end %>
-     
+      <% if @post.present? && @post.new_record?%>
+        <%= link_to "Home", root_path %> 
+        >>  <%=  'Create New Post' %>
+      <% end %>
+
+      <% if controller.controller_name == "posts" && !@post.present? %>
+        <%= link_to "Home", root_path %> 
+        >>  <%=  'Search Results' %>
+      <% end %>  
     </nav>
 
 
-    <h1 class="navbar-brand nav  ">
+    <h1 class="navbar-brand nav">
       <% if account_signed_in? %>
-        <%= link_to "Sign Out", destroy_account_session_path, method: :delete%>
-          <%= link_to "My Account", account_path(current_account)  %> 
+        <div class="row">
+          <div class="col">
+            <%= link_to "Sign Out", destroy_account_session_path, method: :delete%>
+          </div>
+          <div class="col">
+            <%= link_to "My Account", account_path(current_account)  %> 
+          </div>
+       </div>
       <% else %>
           <%= link_to "Sign In", new_account_session_path %> 
       <% end %>

@@ -29,7 +29,7 @@
           <br>
           <br>
 
-          <h2> Serch Posts </h2>
+          <h2> Search Posts </h2>
           <%= search_form_for @search do |f| %>
 
           <div class="form">
@@ -50,6 +50,12 @@
               <select class="form-control" id=<%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
               </select>
             </div>
+
+            <div class="form-group">
+              <label>Instrument :</label>
+              <select class="form-control" id=<%= f.select :instrument_id_eq, Instrument.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
+              </select>
+            </div>
             
             <div class="form-group">
               <label>City :</label>
@@ -60,6 +66,7 @@
             <br>
             <%= f.submit "Search",class: 'btn btn-danger' %>
             <% end %>
+            
           </div>
         </div>
       </div>

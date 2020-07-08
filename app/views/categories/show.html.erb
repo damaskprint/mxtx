@@ -1,15 +1,52 @@
+<div class="card  bg-dark  text-light">
+  <div class="card-body">
+    <h1 class="card-title">
+      <%= @category.name %>
+    </h1>
+
+    <div class="row">
+      <div class="col">
+        <h3 class="card-title">
+          San Antonio :
+        </h3>
 
 
-<% @posts.each do |post| %>
-  <div class="category-post">
-    <span class="post-title"><%= link_to post.title, post_path(post) %></span>
-    <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+
+        <% @posts.each do |post| %>
+          <% if post.city_id == 1 %>
+            <div class="category-post">
+              <span class="post-title"><%= link_to post.title, post_path(post) %></span>
+              <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <h3 class="card-title">
+          Austin :
+        </h3>
+
+        <% @posts.each do |post| %>
+          <% if post.city_id == 2 %>
+            <div class="category-post">
+              <span class="post-title"><%= link_to post.title, post_path(post) %></span>
+              <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <% if @posts.empty? %>
+         <p> no posts to display </p>
+        <% end %>
+      </div>
+    </div>
+
   </div>
-<% end %>
+</div>
 
-
-<% if @posts.empty? %>
- <p> no posts to display </p>
-<% end %>
-
- 
