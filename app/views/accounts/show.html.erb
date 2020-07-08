@@ -1,4 +1,4 @@
-<div class="card-columns">
+<div class="col">
   <div class="card  bg-dark  text-light">
     <div class="card-body">
       <h1>Account Dashboard</h1>
@@ -6,13 +6,17 @@
       <h2><%= @account.email %></h2>
       <h5>Member Since: <%= @account.created_at.strftime("%B %d, %Y") %></h5>
       <h4><%= @account.posts.count %> total Posts</h4>
+      <br>
+
+      <%= link_to 'Delete Account', account_path(@account), method: :delete, data: {confirm: 'Are you sure you want to delete your account? All of your posts will be removed as well.'},class: 'btn btn-danger btn-block' %>
+         
 
       <br>
     </div>
   </div>
-
-
-
+</div>
+<br>
+<div class="col">
   <div class="card  bg-dark  text-light">
     <div class="card-body">
       <h2>My Posts :</h2>

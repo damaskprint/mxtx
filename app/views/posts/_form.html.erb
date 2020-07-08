@@ -13,42 +13,50 @@
   <% end %>
 
   <form class="form">
+
     <div class="form-group" >
       <label> Contact by Phone/Email/Social media tag :</label>
       <input type="contact" class="form-control" id="<%= form.text_field :contact %>
       <small  class="form-text text-muted">Optional</small>    
     </div>
 
-    <div class="form-group">
-      <label>Posting as :</label>
-      <select class="form-control" id=<%= form.select :category_id, Category.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
-      </select>
-    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>Posting as :</label>
+          <select class="form-control" style="width:auto;" id=<%= form.select :category_id, Category.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
+          </select>
+        </div>
+
+    
+        <div class="form-group">
+          <label>City :</label>
+          <select class="form-control" style="width:auto;" id=<%= form.select :city_id, City.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
+          </select>
+        </div>
+      </div>
 
 
-    <div class="form-group">
-      <label>City :</label>
-      <select class="form-control" id=<%= form.select :city_id, City.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
-      </select>
+      <div class="col">
+        <div class="form-group">
+          <label>Genre :</label>
+          <select class="form-control" style="width:auto;" id=<%= form.select :genre_id, Genre.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
+          </select>
+        </div>
+      
+
+        <div class="form-group">
+          <label>Instrument :</label>
+          <select class="form-control" style="width:auto;" id=<%= form.select :instrument_id, Instrument.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
+          </select>
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Genre :</label>
-      <select class="form-control" id=<%= form.select :genre_id, Genre.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Instrument :</label>
-      <select class="form-control" id=<%= form.select :instrument_id, Instrument.all.collect {|c| [ c.name, c.id ] },{:include_blank => true} %>
-      </select>
-    </div>
-    <br>
-
-    <div class="form-group">
-      <label> Title of Post :</label>
-      <input type="title" class="form-control" id="<%= form.text_field :title %>
-    </div>
+      <div class="form-group">
+        <label> Title of Post :</label>
+        <input type="title" class="form-control" id="<%= form.text_field :title %>
+      </div>
 
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Post Description :</label>
@@ -57,7 +65,7 @@
 
 
     
-    <%= form.submit "post", class: 'btn btn-danger' %>
+    <%= form.submit "post", class: 'btn-primary custom-btn btn-block btn-lg' %>
     <br>
     <br>   
   </form>

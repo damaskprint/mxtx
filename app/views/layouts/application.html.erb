@@ -5,6 +5,7 @@
     <title>Mxtx</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css2?family=Asap&family=Rajdhani:wght@500&family=Raleway&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag    'master', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,18 +14,24 @@
   <body>
     <header>
       <%= render "layouts/breadcrumb_nav" %>
+
     </header>
 
-    <div class="container text-center">
-      <p class="notice main"><%= notice %></p>
-    </div>
+    <% if notice.present? %>
+      <br>
+      <div class="row justify-content-center">
+        <div class="alert alert-primary" role="alert">
+          <p class="notice"><%= notice %></p>
+        </div>
+      </div>
+    <% end %>
 
     <div class="main container">
       <div class="card  bg-dark main-left text-light">
         <div class="card-body">
           <p><%= link_to "MXTX", root_path %></p>
 
-          <%= link_to "Create new post",new_post_path,class: 'btn btn-danger' %>
+          <%= link_to "Create new post",new_post_path,class: 'btn-primary custom-btn btn-block btn-lg' %>
 
           <br>
           <br>
@@ -35,39 +42,40 @@
           <div class="form">
             <div class="form-group">
               <label> Keyword :</label>
-              <input type="keyword" class="form-control" id=<%= f.text_field :title_or_content_cont %> 
+              <input type="keyword" class="form-control " id=<%= f.text_field :title_or_content_cont %> 
             </div>
 
             <div class="form-group">
               <label>Looking For :</label>
-              <select class="form-control" id=<%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'}%>
+              <select class="form-control" style="width:auto;" id=<%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'}%>
               </select>
             </div>
 
 
             <div class="form-group">
               <label>Genre :</label>
-              <select class="form-control" id=<%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
+              <select class="form-control" style="width:auto;" id=<%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
               </select>
             </div>
 
             <div class="form-group">
               <label>Instrument :</label>
-              <select class="form-control" id=<%= f.select :instrument_id_eq, Instrument.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
+              <select class="form-control" style="width:auto;" id=<%= f.select :instrument_id_eq, Instrument.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
               </select>
             </div>
             
             <div class="form-group">
               <label>City :</label>
-              <select class="form-control" id=<%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
+              <select class="form-control" style="width:auto;" id=<%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
               </select>
             </div>
 
             <br>
-            <%= f.submit "Search",class: 'btn btn-danger' %>
+            <%= f.submit "Search",class: 'btn-primary custom-btn btn-block btn-lg' %>
             <% end %>
-            
+
           </div>
+          <br>
         </div>
       </div>
 

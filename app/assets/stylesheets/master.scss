@@ -1,8 +1,28 @@
 @import "bootstrap";
+@import "font-awesome";
+
+
 
 body {
  background-image: url("bg.jpeg");
  background-color: #cccccc;
+ font-family: 'Rajdhani', sans-serif;
+}
+
+.btn-danger {
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+.btn-primary.custom-btn {
+  color: #000;
+  background-color: #5bf707;
+  border-color: #5bf707;
+  border: 0;
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
 }
 
 
@@ -25,7 +45,7 @@ body {
 
 .main {
   max-width: 1024px;
-  margin-top: 80px;
+  margin-top: 40px;
 
 }
 
