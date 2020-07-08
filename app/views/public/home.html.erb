@@ -1,9 +1,26 @@
 
-<% @categories.each do |category| %>
-  <div class="category-box">
-    <p><strong><%= link_to category.name, category_path(category) %></strong></p>
+
+
+<div class="container">
+  <div class="card-deck">
+    <% @categories.each do |category| %>
+    <div class="card  bg-dark text-white main-left" style="height: 15rem; width: 25rem;">
+      <div class="card-body">
+
+
+            <a href="<%= category_path(category) %>" style="width:100%;height:100%;display:block"><h2 class="card-title">
+              <%= category.name %>
+            </h2></a>
+            
+          
+
+      </div>
+    </div>
+    <% end %>
+    <br>
   </div>
-<% end %>
+</div>          
+          
 
 
 

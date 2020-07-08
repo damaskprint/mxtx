@@ -16,57 +16,57 @@
     </header>
 
     <div class="container text-center">
-      <p class="notice"><%= notice %></p>
+      <p class="notice main"><%= notice %></p>
     </div>
 
     <div class="main container">
-      <div class="card  bg-dark main-left">
+      <div class="card  bg-dark main-left text-light">
         <div class="card-body">
-            <div class="card bg-dark">
-              <div class="card-body bg-dark">
-                <p><%= link_to "MXTX", root_path %></p>
+          <p><%= link_to "MXTX", root_path %></p>
 
-                  <%= link_to "Create new post",new_post_path %>   
-              </div>
-            </div>
-
-
+          <%= link_to "Create new post",new_post_path,class: 'btn btn-danger' %>
 
           <br>
           <br>
 
           <h2> Serch Posts </h2>
-
           <%= search_form_for @search do |f| %>
-          <%= f.label :title_or_content_cont, "keyword" %>
-          <%= f.text_field :title_or_content_cont %>
-          <br>
-          <br>
 
-          <%= f.label :category_id_eq, "Looking for:"  %>
-          <%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
-          <br>
-          <br>
+          <div class="form">
+            <div class="form-group">
+              <label> Keyword :</label>
+              <input type="keyword" class="form-control" id=<%= f.text_field :title_or_content_cont %> 
+            </div>
 
-          <%= f.label :genre_id_eq, "Genre"  %>
-          <%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
-          <br>
-          <br>
+            <div class="form-group">
+              <label>Looking For :</label>
+              <select class="form-control" id=<%= f.select :category_id_eq, Category.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'}%>
+              </select>
+            </div>
 
-          <%= f.label :city_id_eq, "City"  %>
-          <%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] }, include_blank: true %>
-          <br>
 
-          <br>
-          <%= f.submit "Search" %>
-          <% end %>
+            <div class="form-group">
+              <label>Genre :</label>
+              <select class="form-control" id=<%= f.select :genre_id_eq, Genre.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>City :</label>
+              <select class="form-control" id=<%= f.select :city_id_eq, City.all.collect {|c| [ c.name, c.id ] },{:include_blank => 'Any'} %>
+              </select>
+            </div>
+
+            <br>
+            <%= f.submit "Search",class: 'btn btn-danger' %>
+            <% end %>
+          </div>
         </div>
       </div>
 
       <div class="main-right">
         <%= yield %>
       </div>
-
     </div>
   </body>
 </html>
