@@ -12,7 +12,7 @@
 
 
 
-        <% @posts.each do |post| %>
+        <% @posts.order("created_at DESC").each do |post| %>
           <% if post.city_id == 1 %>
             <div class="category-post">
               <span class="post-title"><%= link_to post.title, post_path(post) %></span>
@@ -27,7 +27,7 @@
           Austin :
         </h3>
 
-        <% @posts.each do |post| %>
+        <% @posts.order("created_at DESC").each do |post| %>
           <% if post.city_id == 2 %>
             <div class="category-post">
               <span class="post-title"><%= link_to post.title, post_path(post) %></span>

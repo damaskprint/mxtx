@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   belongs_to :city
   belongs_to :instrument
   
+  
   validates :contact, presence: true, length: { minimum: 5, maximum: 20 }
   validates :genre, presence: true
   validates :instrument, presence: true
