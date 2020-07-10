@@ -13,20 +13,17 @@
         </tr>
       </thead>
 
-      <tbody>
-
-
-        <% @posts.order("created_at DESC").each do |post| %>
+        <% @posts.each do |post| %>
           <div class="category-post">
             <span class="post-title"><%= link_to post.title, post_path(post) %></span>
             <span class="post-date"><%= time_ago_in_words post.created_at %></span>
             <br>
-            
           </div>
         <% end %>
-      </tbody>
-    </table>
 
+        
+    </table>
+    <%= will_paginate @posts %>
     <br>
   </div>
 </div>

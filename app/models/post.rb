@@ -50,6 +50,9 @@ class Post < ApplicationRecord
       errors.add(:content, "contains language violation.")
     end
   end
+
+  
+
   
 
   #validate_language :content, matchlist: :profanity, matchlist: :hate, matchlist: :sex

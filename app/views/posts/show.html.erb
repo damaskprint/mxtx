@@ -8,7 +8,7 @@
           <% else %>
 
             <%= form_for @post do |f| %>
-              <%= f.hidden_field :post, value: params[:flag] == 'true' %>
+              <%= f.hidden_field :flag, value: true %>
               <%= f.submit 'flag', class: 'btn btn-warning' %>
             <% end %>
           <% end %>
