@@ -84,6 +84,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def inappropriate
+    @post = Post.find(params[:id])
+    @post.update(flag: true)
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
