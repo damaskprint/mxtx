@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_account!, except: [:show, :index]
+  before_action :authenticate_account!, except: [:index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   
 
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    if @post.account != current_account
+    if (@post.account != current_account) 
       return render plain: 'Not Allowed', status: :forbidden
     end
 
@@ -69,12 +69,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def flag
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'Post has been flagged.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
 
-    if @post.account != current_account
+    if (@post.account != current_account) && (current_account.admin == false)
       return render plain: 'Not Allowed', status: :forbidden
     end
 
@@ -84,10 +98,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def inappropriate
-    @post = Post.find(params[:id])
-    @post.update(flag: true)
-  end
 
 
   private

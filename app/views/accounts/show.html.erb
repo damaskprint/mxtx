@@ -16,6 +16,28 @@
   </div>
 </div>
 <br>
+
+<% if @account.admin == true %>
+  <div class="col">
+    <div class="card  bg-dark  text-light">
+      <div class="card-body">
+        <h2>Flagged Posts :</h2>
+
+        <% @account.posts.each do |post| %>
+          <% if post.flag == true %>
+            <div class="category-post">
+              <span class="post-title"><%= link_to post.title, post_path(post) %></span>
+              <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<br>
+
 <div class="col">
   <div class="card  bg-dark  text-light">
     <div class="card-body">
