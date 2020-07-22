@@ -74,8 +74,13 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post has been flagged.' }
-        format.json { render :show, status: :ok, location: @post }
+        if @post.flag == true
+          format.html { redirect_to @post, notice: 'Post has been flagged.' }
+          format.json { render :show, status: :ok, location: @post }
+        elsif @post.flag == false
+          format.html { redirect_to @post, notice: 'Flag has been removed.' }
+          format.json { render :show, status: :ok, location: @post }
+        end
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }

@@ -23,7 +23,7 @@
       <div class="card-body">
         <h2>Flagged Posts :</h2>
 
-        <% @account.posts.each do |post| %>
+        <% Post.all.each do |post| %>
           <% if post.flag == true %>
             <div class="category-post">
               <span class="post-title"><%= link_to post.title, post_path(post) %></span>

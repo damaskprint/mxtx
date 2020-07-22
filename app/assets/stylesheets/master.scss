@@ -2,6 +2,9 @@
 @import "font-awesome";
 
 
+a:link, a:visited {
+  color: #5bf707;
+}
 
 body {
  background-image: url("bg.jpeg");
@@ -14,7 +17,16 @@ body {
   border-radius:                    0px;
   -webkit-border-radius:            0px;
   -moz-border-radius:               0px;
-  font-size: 20cd px
+  font-size: 20cd px;
+  color:   white !important; 
+}
+
+.btn-warning {
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+  font-size: 20cd px;
+  color:   black !important; 
 }
 
 .btn-primary.custom-btn {
@@ -26,6 +38,7 @@ body {
   -webkit-border-radius:            0px;
   -moz-border-radius:               0px;
   text-align:center; 
+ 
 }
 
 
@@ -51,7 +64,6 @@ body {
 .main {
   max-width: 1024px;
   margin-top: 40px;
-
 }
 
 .main-left {
